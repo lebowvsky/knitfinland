@@ -1,0 +1,859 @@
+@font-face {
+    font-family: 'Mayton';
+    src: url('../contents/fonts/Mayton.ttf');
+}
+
+@font-face {
+    font-family: 'typerighter';
+    src: url('../contents/fonts/Futura_Light.ttf');
+}
+
+
+:root {
+    --title-font-family: 'Mayton', cursive;
+    --article-font-family: 'typerighter', futura;
+
+    --nav-font-size: 2.5em;
+    --h1-font-size: 14em;
+    --h1-font-size-medium: 9em;
+    --h1-font-size-mobile: 4em;
+    --h2-font-size: 5em;
+    --article-font-big: 2.5em;
+    --article-font-size: 1.5em;
+    --article-font-size-medium: 1em;
+    --article-font-size-mobile: 0.8em;
+    --input-font-size: 1em;
+
+    --nav-font-color: rgb(17, 3, 43);
+    --h1-font-color: #28368b;
+    --h2-font-color: black;
+    --article-font-color: black;
+    --contact-input-color: white;
+    --contact-label-color: white;
+    --menu-color-mobile: white;
+
+    --mix-blend: exclusion;
+
+    --nav-height: 100px;
+    --div-input-width: 60%;
+    --div-input-width-mobile: 80%;
+
+    --h2-position-top: calc(var(--nav-height) + 20px);
+    --gallery-about-contact-position-top: calc(var(--h2-position-top) + var(--nav-height) + 3vh);
+    --h1-img-position-top-medium: 20vh;
+
+    --article-bckgd-color: rgba(0, 0, 0, 0.7);
+    --nav-bckgd-color-medium: rgba(255, 255, 255, 0.7);
+
+    --article-box-shadow: 0 0 20px rgba(17, 3, 43, .9);
+
+    --article-padding: 20px;
+    --div-input-margin: 20px auto 20px auto;
+    --div-input-margin-mobile: 20px auto 20px auto;
+    --div-input-padding: 10px 10px 10px 10px;
+
+    --div-input-border-radius: 10px;
+
+
+}
+
+
+
+
+
+
+
+
+html, body{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+
+
+.big {
+    font-size: var(--article-font-big);
+    line-height: 30px;
+    margin-right: 5px;
+}
+
+
+/* **************************************************************    Grand ecrans    ************************************************** */
+@media all and (min-width: 1500px){
+
+     article {
+        padding: var(--article-padding);
+        font-family: var(--article-font-family);
+        font-size: var(--article-font-size);
+        color: var(--article-font-color);
+        text-align: justify;
+     }
+
+     #icon-menu {
+         display: none;
+     }
+
+     #icon-menu-close {
+         display: none;
+     }
+
+    /* --------- NAV    ------------- */
+    #icon-menu {
+        display: none;
+    }
+
+    nav {
+        height: 100px;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        z-index: 100;
+        top: 35vh;
+        width: 50%;
+        font-family: var(--title-font-family);
+        font-size: var(--nav-font-size);
+        transition: transform 600ms, background-color 600ms ease-in-out 300ms;
+        transition-timing-function: cubic-bezier(.39,-0.51,.83,.67)
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    nav ul li {
+        position: relative;
+        list-style-type: none;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--nav-font-color);
+    }
+
+    nav a::before {
+        content: '';
+        display: block;
+        height: 5px;
+        width: 0%;
+        background-color: var(--nav-font-color);
+        border-radius: 2px;
+        transition: all ease-in-out 200ms;
+    }
+
+    nav a:hover::before {
+        width: 100%;
+    }
+
+    .nav_fixed {
+        background-color: white;
+        position: fixed;
+        transform: translateY(-35vh);
+    }
+
+    /* --------- MAIN ------------- */
+    #header, #about_me, #contact {
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .main h2 {
+        position: absolute;
+        top: var(--h2-position-top);
+        width: 100%;
+        margin-top: 0;
+        text-align: center;
+        font-family: var(--title-font-family);
+        font-size: var(--h2-font-size);
+        font-weight: normal;
+        color: var(--h2-font-color);
+        mix-blend-mode: var(--mix-blend);
+    }
+
+    /* --------- HEADER ------------- */
+    header {
+        position: relative;
+    }
+
+    #title {
+        position: relative;
+        height: 30vh;
+    }
+
+    #title h1 {
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        margin: 0;
+        font-size: var(--h1-font-size);
+        font-family: var(--title-font-family);
+        font-weight: normal;
+        color: var(--h1-font-color);
+    }
+
+    .image-presentation {
+        position: absolute;
+        left: 60%;
+        top: 10vh;
+        width: 40%;
+        height: 80vh;
+        overflow: hidden;
+    }
+
+    .image-presentation img {
+        height: 100%;
+    }
+
+    .introduction {
+        position: absolute;
+        top: 55vh;
+        left: 5%;
+        width: 45%;
+        text-align: justify;
+    }
+
+    /* ----------------------------- */
+    
+    .text {
+        position: absolute;
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: var(--gallery-about-contact-position-top);
+    }
+
+
+    /* -------- ABOUT ME ----------- */
+    #about_me {
+        position: relative;
+    }
+
+
+    /* -------- GALLERY ------------ */
+    #gallery {
+        height: 100vh;
+        position: relative;
+    }
+
+    .pictures {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+        width: 80%;
+        height: 70vh;
+        padding: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: var(--gallery-about-contact-position-top);
+    }
+
+    .pictures img {
+        width: 15%;
+        height: 30vh;
+    }
+
+    #image-wrapper {
+        display: none;
+        justify-content: center;
+        align-content: flex-end;
+        position: absolute;
+        z-index: 100;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #image-destination{
+        position: absolute;
+        top: 10vh;
+        height: 80vh;
+        background-color: white;
+    }
+
+
+    /* -------- CONTACT ------------ */
+    #contact {
+        position: relative;
+        background: url("../contents/images/contact/contact.jpg") no-repeat fixed bottom;
+        background-size: cover;
+    }
+
+    .contact {
+        position: absolute;
+        width: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: var(--gallery-about-contact-position-top);
+        padding: 0;
+
+    }
+
+    .contact form {
+        margin: 0;
+        width: 100%;
+    }
+
+
+    .divInput {
+        width: var(--div-input-width);
+        max-width: 600px;
+        margin: var(--div-input-margin);
+        padding: var(--div-input-padding);
+        background-color: var(--article-bckgd-color);
+        border: 1px solid white;
+        border-radius: var(--div-input-border-radius);
+    }
+
+    .divInput:last-child {
+        background-color: transparent;
+        border: none;
+        text-align: center;
+    }
+
+
+    label {
+        color: var(--contact-label-color);
+        display: block;
+        text-transform: uppercase;
+    }
+
+    input, textarea {
+        color: var(--contact-input-color);
+        background: none;
+        border: none;
+        width: 100%;
+        font-family: var(--article-font-family);
+        font-size: var(--input-font-size);
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    .divInput button {
+        color: var(--article-font-color);
+        font-family: var(--article-font-family);
+        font-size: var(--input-font-size);
+        background-color: transparent;
+        border: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    .divInput button::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: -0.25em;
+        right: -0.25em;
+        background-color: white;
+        transform-origin: bottom center;
+        transform: scaleY(0.1);
+        transition: all 0.1s ease-in-out;
+        border-radius: 5px;
+    }
+
+    .divInput button:hover::before {
+        transform: scaleY(1);
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ********************************************************************    Ecrans Moyens    ************************************************ */
+@media all and (min-width: 920px) and (max-width: 1500px) {
+
+    .article {
+        padding: var(--article-padding);
+        font-family: var(--article-font-family);
+        font-size: var(--article-font-size-medium);
+        color: var(--article-font-color);
+        text-align: justify;
+    }
+
+     #icon-menu {
+         display: none;
+     }
+
+     #icon-menu-close {
+         display: none;
+     }
+
+    /* --------- NAV    ------------- */
+    #icon-menu {
+        display: none;
+    }
+
+    nav {
+        height: 100px;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        width: 100%;
+        font-family: var(--title-font-family);
+        font-size: var(--nav-font-size);
+        background-color: var(--nav-bckgd-color-medium);
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    nav ul li {
+        position: relative;
+        list-style-type: none;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--nav-font-color);
+    }
+
+
+    /* --------- MAIN ------------- */
+    #header, #about_me, #contact, #gallery {
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .main h2 {
+        position: absolute;
+        top: var(--h2-position-top);
+        width: 100%;
+        margin-top: 0;
+        text-align: center;
+        font-family: var(--title-font-family);
+        font-size: var(--h2-font-size);
+        font-weight: normal;
+        color: var(--h2-font-color);
+        mix-blend-mode: var(--mix-blend);
+    }
+
+
+    /* --------- HEADER ------------- */
+    header {
+        position: relative;
+    }
+
+    #title {
+        position: relative;
+        top: var(--h1-img-position-top-medium);
+        height: 20vh;
+    }
+
+    #title h1 {
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        margin: 0;
+        font-size: var(--h1-font-size-medium);
+        font-family: var(--title-font-family);
+        font-weight: normal;
+        color: var(--h1-font-color);
+    }
+
+    .image-presentation {
+        position: absolute;
+        left: 60%;
+        top: var(--h1-img-position-top-medium);
+        width: 40%;
+        height: 60vh;
+        overflow: hidden;
+    }
+
+    .image-presentation img {
+        height: 100%;
+    }
+
+    .introduction {
+        position: absolute;
+        top: 40vh;
+        left: 5%;
+        width: 45%;
+        text-align: justify;
+    }
+
+
+    /* ----------------------------- */
+    
+    .pictures, .text {
+        position: absolute;
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: var(--gallery-about-contact-position-top);
+    }
+
+    /* -------- ABOUT ME ----------- */
+    #about_me {
+        position: relative;
+    }
+
+
+    /* -------- GALLERY ------------ */
+    
+    .pictures {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+        width: 80%;
+        height: 70vh;
+        padding: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: var(--gallery-about-contact-position-top);
+    }
+
+    .pictures img {
+        width: 15%;
+        height: 30vh;
+    }
+
+    #image-wrapper {
+        display: none;
+        justify-content: center;
+        align-content: flex-end;
+        position: absolute;
+        z-index: 100;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #image-destination{
+        position: absolute;
+        top: 10vh;
+        height: 80vh;
+        background-color: white;
+    }
+
+
+    /* -------- CONTACT ------------ */
+    #contact {
+        position: relative;
+        background: url("../contents/images/contact/contact.jpg") no-repeat fixed bottom;
+        background-size: cover;
+    }
+
+    .contact {
+        position: absolute;
+        width: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: var(--gallery-about-contact-position-top);
+        padding: 0;
+
+    }
+
+    .contact form {
+        margin: 0;
+        width: 100%;
+    }
+
+
+    .divInput {
+        width: var(--div-input-width);
+        max-width: 600px;
+        margin: var(--div-input-margin);
+        padding: var(--div-input-padding);
+        background-color: var(--article-bckgd-color);
+        border: 1px solid white;
+        border-radius: var(--div-input-border-radius);
+    }
+
+    .divInput:last-child {
+        background-color: transparent;
+        border: none;
+        text-align: center;
+    }
+
+
+    label {
+        color: var(--contact-label-color);
+        display: block;
+        text-transform: uppercase;
+    }
+
+    input, textarea {
+        color: var(--contact-input-color);
+        background: none;
+        border: none;
+        width: 100%;
+        font-family: var(--article-font-family);
+        font-size: var(--input-font-size);
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    .divInput button {
+        color: var(--article-font-color);
+        font-family: var(--article-font-family);
+        font-size: var(--input-font-size);
+        background-color: transparent;
+        border: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    .divInput button::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: -0.25em;
+        right: -0.25em;
+        background-color: white;
+        transform-origin: bottom center;
+        transform: scaleY(0.1);
+        transition: all 0.1s ease-in-out;
+        border-radius: 5px;
+    }
+
+    .divInput button:hover::before {
+        transform: scaleY(1);
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ********************************************************************    Petits Ecrans    ************************************************ */
+
+@media all and (max-width: 919px) {
+
+    html, body {
+        box-sizing: border-box;
+    }
+
+     /* --------- NAV    ------------- */
+     #icon-menu {
+         position: fixed;
+         top: 2vh;
+         right: 10%;
+         z-index: 100;
+         font-size: 2em;
+         color: black;
+     }
+
+     #icon-menu-close {
+         display: none;
+         position: fixed;
+         top: 2vh;
+         right: 10%;
+         z-index: 100;
+         font-size: 2em;
+         color: var(--menu-color-mobile);
+     }
+
+     nav {
+         display: none;
+         position: fixed;
+         top: 0;
+         width: 100%;
+         z-index: 99;
+         font-family: var(--title-font-family);
+         font-size: var(--nav-font-size);
+     }
+
+     nav ul {
+        background-color: rgba(40, 54, 139, 0.8);
+        margin: 0;
+        padding: 20px;
+     }
+
+     nav ul li {
+         list-style-type: none;
+     }
+
+     nav ul li a {
+         text-decoration: none;
+         color: var(--menu-color-mobile);
+     }
+
+
+     /* --------- MAIN ------------- */
+
+     .main h2 {
+         width: 100%;
+         margin-top: 0;
+         text-align: center;
+         font-family: var(--title-font-family);
+         font-size: var(--h2-font-size);
+         font-weight: normal;
+         color: var(--h2-font-color);
+     }
+
+     section {
+         height: 100vh;
+         width: 100%;
+     }
+
+     .article {
+         width: 100%;
+         font-size: var(--article-font-size-mobile);
+         text-align: justify;
+     }
+     /* --------- HEADER ------------- */
+     #header {
+         position: relative;
+         height: 100vh;
+         width: 100%;
+     }
+     .image-presentation {
+         display: none;
+     }
+
+     #title {
+         position: absolute;
+         top: 10vh;
+         height: 50vh;
+         width: 90%;
+         overflow: hidden;
+         color: var(--h1-font-color);
+         font-family: var(--title-font-family);
+         font-size: var(--h1-font-size-mobile);
+         padding-left: 10%;
+     }
+
+     #title h1 {
+         margin: 0;
+         font-weight: normal;
+     }
+
+     .introduction {
+         position: absolute;
+         top: 60vh;
+         width: 90%;
+         margin-left: 5%;
+     }
+     /* ----------------------------- */
+     /* -------- ABOUT ME ----------- */
+
+     .text {
+         width: 90%;
+         margin-left: 5%;
+     }
+     /* -------- GALLERY ------------ */
+     .pictures {
+         display: flex;
+         width: 100%;
+         flex-wrap: wrap;
+         justify-content: space-around;
+         align-content: space-around;
+     }
+
+     .pictures img {
+         width: 20%;
+     }
+
+     #image-wrapper {
+         display: none;
+         justify-content: center;
+         align-content: flex-end;
+         position: absolute;
+         z-index: 110;
+         height: 100vh;
+         width: 100%;
+         background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #image-destination{
+         position: absolute;
+         top: 10vh;
+         height: 80vh;
+         background-color: white;
+    }
+     /* -------- CONTACT ------------ */
+
+     #contact {
+         position: relative;
+         background: url("../contents/images/contact/contact.jpg") no-repeat fixed bottom;
+         background-size: cover;
+    }
+
+     .contact {
+         position: absolute;
+         width: 100%;
+         left: 50%;
+         transform: translateX(-50%);
+         padding: 0;
+
+    }
+
+     .contact form {
+         margin: 0;
+         width: 100%;
+     }
+
+
+     .divInput {
+         width: var(--div-input-width-mobile);
+         max-width: 600px;
+         margin: var(--div-input-margin-mobile);
+         padding: var(--div-input-padding);
+         background-color: var(--article-bckgd-color);
+         border: 1px solid white;
+         border-radius: var(--div-input-border-radius);
+    }
+
+     .divInput:last-child {
+         background-color: transparent;
+         border: none;
+         text-align: center;
+    }
+
+
+     label {
+         color: var(--contact-label-color);
+         display: block;
+         text-transform: uppercase;
+    }
+
+     input, textarea {
+         color: var(--contact-input-color);
+         background: none;
+         border: none;
+         width: 100%;
+         font-family: var(--article-font-family);
+         font-size: var(--input-font-size);
+    }
+
+     textarea {
+         height: 70px;
+    }
+
+    .divInput button {
+        background-color: white;
+    }
+}
